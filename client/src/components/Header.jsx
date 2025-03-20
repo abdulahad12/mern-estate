@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 
@@ -41,25 +41,16 @@ const Header = () => {
           >
             <li>About</li>
           </NavLink>
-          <NavLink
-            to="/sign-up"
-            className={({ isActive }) => {
-              return `hidden sm:inline  hover:underline   ${
-                isActive ? "text-slate-900" : "text-slate-600"
-              } `;
-            }}
-          >
-            <li>Signup</li>
-          </NavLink>{" "}
+
           <NavLink
             to="/sign-in"
             className={({ isActive }) => {
-              return `hidden sm:inline hover:underline  ${
+              return ` sm:inline hover:underline  ${
                 isActive ? "text-slate-900" : "text-slate-600"
               } `;
             }}
           >
-            <li>Signin</li>
+            <li>SignIn</li>
           </NavLink>
         </ul>
       </div>

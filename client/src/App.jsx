@@ -5,6 +5,7 @@ import Profile from "./pages/Profile";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import Layout from "./components/Layout";
+
 const App = () => {
   return (
     <BrowserRouter>

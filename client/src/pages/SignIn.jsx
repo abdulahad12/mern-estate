@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, Link } from "react-router-dom";
 import { loginUser } from "../redux/user/userSlice";
+import OAuth from "../components/OAuth";
 // import { useLoginUserMutation } from "../redux/user/apiSlice";
 
 const SignIn = () => {
@@ -97,11 +98,12 @@ const SignIn = () => {
         />
 
         <button
-          // disabled={isLoading}
+          disabled={loading}
           className="bg-slate-600 hover:bg-slate-700 disabled:bg-slate-400 text-white p-3 rounded-lg"
         >
-          {/* {isLoading ? "Loading" : " IN"}  */}SIGN IN
+          {loading ? "Loading" : " SIGN IN"}
         </button>
+        <OAuth />
       </form>
       <div className="flex gap-2 mt-2 ">
         <h1 className="ml-2">You donot have an account?</h1>

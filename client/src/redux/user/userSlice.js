@@ -4,7 +4,12 @@ export const loginUser = createAsyncThunk(
   "user/signin",
   async (userData, { rejectWithValue, getState, dispatch }) => {
     try {
-      const res = await fetch("/api/auth/signin", {
+      const endpoint =
+        userData.provider === "google"
+          ? "/api/auth/google"
+          : "/api/auth/signin";
+
+      const res = await fetch(endpoint, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

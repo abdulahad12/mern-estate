@@ -5,6 +5,7 @@ import Profile from "./pages/Profile";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import Layout from "./components/Layout";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 const App = () => {
   return (
@@ -13,7 +14,9 @@ const App = () => {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="about" element={<About />} />
-          <Route path="profile" element={<Profile />} />
+          <Route element={<ProtectedRoute />}>
+            <Route path="profile" element={<Profile />} />
+          </Route>
           <Route path="sign-in" element={<SignIn />} />
           <Route path="sign-up" element={<SignUp />} />
         </Route>

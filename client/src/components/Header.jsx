@@ -2,7 +2,11 @@ import React, { useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 
+import { useSelector } from "react-redux";
 const Header = () => {
+  const currentUser = useSelector((state) => state.user.currentUser);
+  // console.log(currentUser.avatar);
+
   return (
     <header className="bg-slate-200 shadow-md ">
       <div className="flex items-center justify-between max-w-6xl p-3 mx-auto">
@@ -11,7 +15,7 @@ const Header = () => {
           <span className="text-slate-600">Estate</span>
         </div>
 
-        <form className="  bg-slate-100 p-3 rounded-lg flex items-center">
+        <form className=" bg-slate-100 p-3 rounded-lg flex items-center">
           <input
             type="text"
             placeholder=" Search...."
@@ -43,14 +47,22 @@ const Header = () => {
           </NavLink>
 
           <NavLink
-            to="/sign-in"
+            to="/profile"
             className={({ isActive }) => {
               return ` sm:inline hover:underline  ${
                 isActive ? "text-slate-900" : "text-slate-600"
               } `;
             }}
           >
-            <li>SignIn</li>
+            {currentUser ? (
+              <img
+                className="w-7 h-7 rounded-full object-cover"
+                src={currentUser.avatar}
+                alt="Profile"
+              />
+            ) : (
+              <li>SignIn</li>
+            )}
           </NavLink>
         </ul>
       </div>

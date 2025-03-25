@@ -18,10 +18,8 @@ const rootReducer = combineReducers({
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 export const store = configureStore({
-  reducer: {
-    // [apiSlice.reducerPath]: apiSlice.reducer,
-    user: persistedReducer,
-  },
+  reducer: persistedReducer,
+  // [apiSlice.reducerPath]: apiSlice.reducer,
 
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({ serializableCheck: false }),
